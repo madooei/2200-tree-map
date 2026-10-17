@@ -41,113 +41,53 @@ public class TreeMap<K extends Comparable<K>, V> implements Map<K, V> {
   }
 
   public TreeMap() {
-    root = null;
-    size = 0;
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   @Override
   public V get(K key) {
-    if (key == null) {
-      throw new IllegalArgumentException();
-    }
-    Node<K, V> node = find(root, key);
-    if (node == null) {
-      return null;
-    }
-    return node.value;
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   @Override
   public boolean containsKey(K key) {
-    if (key == null) {
-      throw new IllegalArgumentException();
-    }
-    return find(root, key) != null;
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // Returns the node holding key in the subtree rooted at node, or null if
   // key is not there.
   private Node<K, V> find(Node<K, V> node, K key) {
-    if (node == null) {
-      return null;
-    }
-
-    int cmp = key.compareTo(node.key);
-    if (cmp < 0) {
-      return find(node.left, key);
-    } else if (cmp > 0) {
-      return find(node.right, key);
-    } else {
-      return node;
-    }
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   @Override
   public boolean put(K key, V value) {
-    if (key == null || value == null) {
-      throw new IllegalArgumentException();
-    }
-    boolean isNew = !containsKey(key);
-    root = put(root, key, value);
-    if (isNew) {
-      size++;
-    }
-    return isNew;
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // Puts key and value in the subtree rooted at node and returns that
   // subtree's new root. Replaces the value if key is already there.
   private Node<K, V> put(Node<K, V> node, K key, V value) {
-    if (node == null) {
-      return new Node<>(key, value);
-    }
-
-    int cmp = key.compareTo(node.key);
-    if (cmp < 0) {
-      node.left = put(node.left, key, value);
-    } else if (cmp > 0) {
-      node.right = put(node.right, key, value);
-    } else {
-      node.value = value;  // no new node, so the shape did not change
-      return node;
-    }
-    updateHeight(node);
-    return rebalance(node);
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   @Override
   public boolean remove(K key) {
-    if (key == null) {
-      throw new IllegalArgumentException();
-    }
-    if (!containsKey(key)) {
-      return false;
-    }
-    root = remove(root, key);
-    size--;
-    return true;
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // Removes key from the subtree rooted at node and returns that subtree's
   // new root. Assumes key is in the subtree.
   private Node<K, V> remove(Node<K, V> node, K key) {
-    int cmp = key.compareTo(node.key);
-    if (cmp < 0) {
-      node.left = remove(node.left, key);
-    } else if (cmp > 0) {
-      node.right = remove(node.right, key);
-    } else if (node.left == null) {
-      return node.right;
-    } else if (node.right == null) {
-      return node.left;
-    } else {
-      Node<K, V> successor = minNode(node.right);
-      node.key = successor.key;
-      node.value = successor.value;
-      node.right = remove(node.right, successor.key);
-    }
-    updateHeight(node);
-    return rebalance(node);
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // Assumes node is not null. Returns the node with the smallest key in the
@@ -161,86 +101,69 @@ public class TreeMap<K extends Comparable<K>, V> implements Map<K, V> {
 
   @Override
   public int size() {
-    return size;
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // Returns the cached height of node. The empty tree has height -1.
   private int height(Node<K, V> node) {
-    if (node == null) {
-      return -1;
-    }
-    return node.height;
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // Assumes node is not null.
   private int balanceFactor(Node<K, V> node) {
-    return height(node.left) - height(node.right);
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // Assumes node is not null and its children's cached heights are correct.
   private void updateHeight(Node<K, V> node) {
-    node.height = 1 + Math.max(height(node.left), height(node.right));
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // Assumes node is not null, its children are balanced, and its cached
   // height is correct. Returns the root of the subtree after rebalancing.
   private Node<K, V> rebalance(Node<K, V> node) {
-    int bf = balanceFactor(node);
-    if (bf > 1) {
-      if (balanceFactor(node.left) < 0) {
-        return leftRightRotation(node);
-      }
-      return rightRotation(node);
-    }
-    if (bf < -1) {
-      if (balanceFactor(node.right) > 0) {
-        return rightLeftRotation(node);
-      }
-      return leftRotation(node);
-    }
-    return node;
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // Assumes root.left is not null. Returns the new root of the subtree.
   private Node<K, V> rightRotation(Node<K, V> root) {
-    Node<K, V> child = root.left;
-    root.left = child.right;
-    child.right = root;
-    updateHeight(root);  // root is now below child
-    updateHeight(child);
-    return child;
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // Assumes root.right is not null. Returns the new root of the subtree.
   private Node<K, V> leftRotation(Node<K, V> root) {
-    Node<K, V> child = root.right;
-    root.right = child.left;
-    child.left = root;
-    updateHeight(root);  // root is now below child
-    updateHeight(child);
-    return child;
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // Assumes root.left.right is not null. Returns the new root of the subtree.
   private Node<K, V> leftRightRotation(Node<K, V> root) {
-    root.left = leftRotation(root.left);
-    return rightRotation(root);
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // Assumes root.right.left is not null. Returns the new root of the subtree.
   private Node<K, V> rightLeftRotation(Node<K, V> root) {
-    root.right = rightRotation(root.right);
-    return leftRotation(root);
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   @Override
   public Iterator<K> iterator() {
-    return new KeyIterator();
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   @Override
   public Iterable<Map.Entry<K, V>> entries() {
-    return new Entries();
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // Walks the tree in-order, returning each node's key.
@@ -249,12 +172,14 @@ public class TreeMap<K extends Comparable<K>, V> implements Map<K, V> {
 
     @Override
     public boolean hasNext() {
-      return nodes.hasNext();
+      // TODO: Implement me
+      throw new UnsupportedOperationException("TODO: Implement me");
     }
 
     @Override
     public K next() {
-      return nodes.next().key();
+      // TODO: Implement me
+      throw new UnsupportedOperationException("TODO: Implement me");
     }
   }
 
@@ -262,7 +187,8 @@ public class TreeMap<K extends Comparable<K>, V> implements Map<K, V> {
   private class Entries implements Iterable<Map.Entry<K, V>> {
     @Override
     public Iterator<Map.Entry<K, V>> iterator() {
-      return new EntryIterator();
+      // TODO: Implement me
+      throw new UnsupportedOperationException("TODO: Implement me");
     }
   }
 
@@ -272,7 +198,8 @@ public class TreeMap<K extends Comparable<K>, V> implements Map<K, V> {
     private Stack<Node<K, V>> stack = new LinkedStack<>();
 
     EntryIterator() {
-      pushLeftSpine(root);
+      // TODO: Implement me
+      throw new UnsupportedOperationException("TODO: Implement me");
     }
 
     // Pushes node and every node on the path of left children below it.
@@ -285,18 +212,14 @@ public class TreeMap<K extends Comparable<K>, V> implements Map<K, V> {
 
     @Override
     public boolean hasNext() {
-      return !stack.isEmpty();
+      // TODO: Implement me
+      throw new UnsupportedOperationException("TODO: Implement me");
     }
 
     @Override
     public Map.Entry<K, V> next() {
-      if (!hasNext()) {
-        throw new NoSuchElementException();
-      }
-      Node<K, V> node = stack.top();
-      stack.pop();
-      pushLeftSpine(node.right);
-      return node;
+      // TODO: Implement me
+      throw new UnsupportedOperationException("TODO: Implement me");
     }
   }
 }
