@@ -204,10 +204,8 @@ public class TreeMap<K extends Comparable<K>, V> implements Map<K, V> {
 
     // Pushes node and every node on the path of left children below it.
     private void pushLeftSpine(Node<K, V> node) {
-      while (node != null) {
-        stack.push(node);
-        node = node.left;
-      }
+      // TODO: Implement me
+      throw new UnsupportedOperationException("TODO: Implement me");
     }
 
     @Override
