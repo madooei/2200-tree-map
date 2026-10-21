@@ -73,6 +73,13 @@ public class TreeMapTest extends MapTest {
   }
 
   @Test
+  public void putDoesALeftRightDoubleRotation() {
+    TreeMap<Integer, String> tree = treeOf(14, 7, 17, 4, 11);
+    tree.put(9, "v9");
+    assertEquals(listOf(11, 7, 4, 9, 14, 17), preOrder(rootOf(tree)));
+  }
+
+  @Test
   public void overwritingAKeyDoesNotChangeTheShape() {
     TreeMap<Integer, String> tree = treeOf(50, 30, 70, 20, 40, 60, 80);
     List<Integer> before = preOrder(rootOf(tree));
@@ -85,6 +92,13 @@ public class TreeMapTest extends MapTest {
     TreeMap<Integer, String> tree = treeOf(14, 7, 17, 4, 11, 19, 3);
     tree.remove(11);
     assertEquals(listOf(14, 4, 3, 7, 17, 19), preOrder(rootOf(tree)));
+  }
+
+  @Test
+  public void removeRotatesLeft() {
+    TreeMap<Integer, String> tree = treeOf(14, 7, 17, 4, 16, 19, 20);
+    tree.remove(16);
+    assertEquals(listOf(14, 7, 4, 19, 17, 20), preOrder(rootOf(tree)));
   }
 
   @Test

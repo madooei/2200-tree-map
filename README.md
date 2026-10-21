@@ -1,6 +1,6 @@
 # TreeMap
 
-An AVL tree implementation of the `Map` ADT. The tree keeps its keys in search order and rebalances itself after every `put` and `remove`, so its height stays about $\log n$ and every operation is $O(\log n)$. A JUnit suite checks it against the `Map` contract, then checks that the keys come out in sorted order and that the tree keeps the balanced shapes the notes trace.
+An AVL tree implementation of the `Map` ADT. The tree keeps its keys in search order and rebalances itself after every `put` and `remove`, so its height stays about $\log n$ and `get`, `containsKey`, `put`, and `remove` each take $O(\log n)$ time. A JUnit suite checks it against the `Map` contract, then checks that the keys come out in sorted order and that every kind of rotation leaves the tree in the expected balanced shape.
 
 ## Prerequisites
 
@@ -46,4 +46,4 @@ code/
 - `map.Main` — a runnable demo of the password example. The usernames arrive in sorted order, and the iteration lists them in sorted order.
 - `stack.Stack<T>`, `stack.LinkedStack<T>` — the Stack ADT and its linked implementation, copied so this code compiles on its own. The in-order iterator keeps the nodes still to visit on a stack.
 - `map.MapTest` — the abstract contract suite from the map chapter.
-- `map.TreeMapTest` — runs the contract suite against `TreeMap`, then checks the sorted iteration and, by reading the tree's private fields, the shape and balance of the tree after the rotations the notes trace.
+- `map.TreeMapTest` — runs the contract suite against `TreeMap`, then checks the sorted iteration and, by reading the tree's private fields, the shape and balance of the tree after each kind of rotation, in both put and remove.
