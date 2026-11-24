@@ -40,7 +40,7 @@ code/
 - `scripts/test.sh map.TreeMapTest` — compiles everything and runs only that test class.
 - `scripts/run.sh demo.TreeMapDemo` — compiles everything and runs that one demo. Every class you implement has its own demo.
 
-## What's here
+## Contents
 
 - `map.Map<K, V>` — the Map contract from the map chapter: `put`, `get`, `remove`, `containsKey`, `size`, `iterator()` over the keys, and `entries()` over the key-value pairs.
 - `map.TreeMap<K, V>` — the AVL tree implementation. Each node holds a key, a value, and the cached height of its subtree, and it is also the `Map.Entry` that `entries()` hands back. Both iterations visit the keys in ascending order.
